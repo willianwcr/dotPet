@@ -21,19 +21,20 @@
 			'url' => '/',
 			'permission' => '',
 			'title' => 'Página Inicial',
-			'main' => 'pages/home/index.php',
-			'css' => '/pages/home/style.css',
-			'js' => '/pages/home/script.js'
+			'main' => 'views/home/index.php',
+			'css' => '/views/home/style.css',
+			'js' => '/views/home/script.js'
 		],
 		[
 			'url' => '/login',
 			'title' => 'Login',
-			'main' => 'pages/login/index.php',
-			'css' => '/pages/login/style.css',
-			'js' => '/pages/login/script.js'
+			'main' => 'views/login/index.php',
+			'css' => '/views/login/style.css',
+			'js' => '/views/login/script.js'
 		],
 		[
-			'url' => '/animal'
+			'url' => '/animal',
+			'animal' => 'Lista de animais'
 		]
 	];
 	
