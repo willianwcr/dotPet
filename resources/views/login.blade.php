@@ -16,17 +16,19 @@
         <div class="logo">
             <img src="{{ asset('/img/logo-color.png') }}" alt="Logo dotpet White">
         </div>
-        <form class="login-form" action="/" method="GET">
+        <form class="login-form" action="{{ route('login.do') }}" method="POST">
+            @csrf
             <div class="title">
                 🐶 Login
             </div>
+            <!-- CRIAR NOTIFICAÇÃO DE ERRO CASO OCORRA -->
             <div class="form-input-icon">
                 <i class="fas fa-user form-icon"></i>
-                <input type="text" class="form-input" placeholder="Nome de usuário ou e-mail">
+                <input type="email" class="form-input" name="email" placeholder="E-mail">
             </div>
             <div class="form-input-icon">
                 <i class="fas fa-key form-icon"></i>
-                <input type="password" class="form-input" placeholder="Senha">
+                <input type="password" class="form-input" name="password" placeholder="Senha">
             </div>
             <div class="form-button">
                 <button class="btn btn-primary btn-lg btn-block">Entrar</button>
