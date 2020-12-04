@@ -252,6 +252,19 @@
   text-decoration: none;
 }
 
+.form-detail {
+  color: #BFBFBF;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.form-detail a {
+  text-decoration: none;
+  color: #EF476F;
+  font-weight: 700;
+}
+
 /* BUTTON */
 
 .btn {

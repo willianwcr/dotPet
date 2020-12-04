@@ -1,6 +1,7 @@
 @extends('layouts.login')
 
 @section('title', 'Login')
+@section('background-image', asset('/img/background-image.jpeg'))
 @section('footer')
     <span>Não tem cadastro ainda? <a href="{{ route('register.showForm') }}">Registre-se aqui</a></span>
 @endsection

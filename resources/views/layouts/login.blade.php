@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container row">
-    <div class="sidebar col-7" style="background-image: url('{{ asset('/img/background-image.jpeg') }}')">
+    <div class="sidebar col-7" style="background-image: url('@yield('background-image')')">
         <div class="logo">
             <img src="{{ asset('/img/logo-white.png') }}" alt="Logo dotpet White">
         </div>
