@@ -29,6 +29,17 @@ class AuthController extends Controller
         return redirect()->back()->withInput()->withErrors(['E-mail ou senha inválidos!']);
     }
 
+    public function showRegisterForm(){
+        if(Auth::check() === true){
+            return redirect()->route('home');
+        }
+        return view('register');
+    }
+
+    public function doRegister(Request $request){
+        return true;
+    }
+
     public function logout(){
         Auth::logout();
         return redirect()->route('login.showForm');
