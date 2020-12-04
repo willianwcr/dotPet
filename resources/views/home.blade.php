@@ -3,5 +3,6 @@
 @section('title', 'Início')
 
 @section('content')
-Home
+    <x-top-menu/>
+    Home
 @endsection

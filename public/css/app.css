@@ -107,6 +107,85 @@
   max-width: 100%;
 }
 
+/* TOP BAR */
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 5%;
+}
+
+.top-bar .logo {
+  width: 300px;
+  position: relative;
+  display: inline-block;
+}
+
+.top-bar .logo img {
+  width: 100%;
+}
+
+.top-bar .desktop-menu {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.top-bar .actions {
+  display: inline-block;
+}
+
+.top-bar .actions button {
+  margin-left: 10px;
+}
+
+.top-bar .actions :first-child {
+  margin-left: 0px;
+}
+
+/* TOP MENU */
+
+.menu {
+  display: inline-block;
+  list-style: none;
+}
+
+.menu .menu-item {
+  display: inline-block;
+  margin-right: 30px;
+  font-size: 18px;
+}
+
+.menu .menu-item a {
+  color: #BFBFBF;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.menu .menu-item.active {
+  position: relative;
+}
+
+.menu .menu-item.active a {
+  color: #282828;
+  font-weight: 700;
+}
+
+.menu .menu-item.active ::after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  background-color: #EF476F;
+  height: 4px;
+  left: 0;
+  bottom: -10px;
+}
+
+.menu .menu-item:last-child {
+  margin-right: 0;
+}
+
 /* SIDE BAR */
 
 .sidebar {
@@ -287,9 +366,21 @@
   padding: 24px 30px;
 }
 
+.btn.btn-sm {
+  font-size: 15px;
+  padding: 15px 30px;
+}
+
 .btn.btn-primary {
   background-color: #EF476F;
+  border: solid 3px #EF476F;
   color: #ffffff;
+}
+
+.btn.btn-secondary {
+  background-color: #ffffff;
+  color: #EF476F;
+  border: solid 3px #EF476F;
 }
 
 /* Alert */

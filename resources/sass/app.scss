@@ -95,6 +95,82 @@ $white: #ffffff;
     max-width: 100%;
 }
 
+/* TOP BAR */
+.top-bar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 5%;
+
+    .logo{
+        width: 300px;
+        position: relative;
+        display: inline-block;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    .desktop-menu{
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    .actions{
+        display: inline-block;
+        button{
+            margin-left: 10px;
+        }
+
+        :first-child{
+            margin-left: 0px;
+        }
+    }
+}
+
+/* TOP MENU */
+.menu{
+    display: inline-block;
+    list-style: none;
+
+    .menu-item{
+        display: inline-block;
+        margin-right: 30px;
+        font-size: 18px;
+
+        a{
+            color: $gray3;
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        &.active{
+            position: relative;
+
+            a{
+                color: $black;
+                font-weight: 700;
+            }
+
+            ::after{
+                content: " ";
+                position: absolute;
+                width: 100%;
+                background-color: $primary;
+                height: 4px;
+                left: 0;
+                bottom: -10px;
+            }
+        }
+
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
+
 
 /* SIDE BAR */
 .sidebar{
@@ -265,9 +341,21 @@ $white: #ffffff;
         padding: 24px 30px;
     }
 
+    &.btn-sm{
+        font-size: 15px;
+        padding: 15px 30px;
+    }
+
     &.btn-primary{
         background-color: $primary;
+        border: solid 3px $primary;
         color: $white;
+    }
+
+    &.btn-secondary{
+        background-color: $white;
+        color: $primary;
+        border: solid 3px $primary;
     }
 }
 
