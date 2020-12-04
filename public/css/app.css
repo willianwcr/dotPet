@@ -134,6 +134,7 @@
 
 .top-bar .actions {
   display: inline-block;
+  white-space: nowrap;
 }
 
 .top-bar .actions button {

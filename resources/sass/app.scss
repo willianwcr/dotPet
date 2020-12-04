@@ -120,6 +120,8 @@ $white: #ffffff;
 
     .actions{
         display: inline-block;
+        white-space: nowrap;
+        
         button{
             margin-left: 10px;
         }
