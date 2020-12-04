@@ -1,6 +1,6 @@
 <div class="top-bar">
     <div class="logo">
-        <img src="{{ asset('/img/logo-color.png') }}" alt="Logo dotpet">
+        <a href="{{ route('home') }}"><img src="{{ asset('/img/logo-color.png') }}" alt="Logo dotpet"></a>
     </div>
     <div class="desktop-menu">
         <ul class="menu">
