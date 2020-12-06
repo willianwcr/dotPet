@@ -22,7 +22,7 @@ class CreateAnimalsTable extends Migration
             $table->integer('gender');
             $table->string('breed');
             $table->date('birthday');
-            $table->integer('species_id');
+            $table->integer('specie_id');
             $table->uuid('image_id');
             $table->boolean('published');
             $table->integer('views');
