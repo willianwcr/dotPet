@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('cnpj')->nullable();
             $table->string('password');
             $table->integer('type');
-            $table->uuid('ímage_id')->nullable();
+            $table->uuid('image_id')->nullable();
             $table->string('cep')->nullable();
             $table->string('rua')->nullable();
             $table->string('complemento')->nullable();
