@@ -7,7 +7,7 @@
 @endsection
 
 @section('form')
-<form class="login-form" action="{{ route('login.do') }}" method="POST">
+<form class="login-form" action="{{ route('register.do') }}" method="POST">
     @csrf
     <div class="title">
         👤 Registre-se

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -37,7 +38,21 @@ class AuthController extends Controller
     }
 
     public function doRegister(Request $request){
-        return true;
+
+        echo 'Fazendo o registro';
+
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:255'],
+            'email' => ['required', 'unique:users', 'max:255'],
+            'birthday' => ['required', 'max:255'],
+            'password' => ['required', 'max:255']
+        ]);
+
+        return User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => bcrypt($validatedData['password']),
+        ]);
     }
 
     public function logout(){

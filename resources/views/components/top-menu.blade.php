@@ -22,7 +22,9 @@
         </ul>
     </div>
     @auth
-        Usuário logado!
+        <div class="actions">
+            <button onclick="window.location.href = '{{ route('logout') }}'" class="btn btn-secondary btn-sm">Logout</button>
+        </div>
     @endauth
 
     @guest
