@@ -39,8 +39,6 @@ class AuthController extends Controller
 
     public function doRegister(Request $request){
 
-        echo 'Fazendo o registro';
-
         $validatedData = $request->validate([
             'name' => ['required', 'max:255'],
             'email' => ['required', 'unique:users', 'max:255'],
@@ -48,11 +46,25 @@ class AuthController extends Controller
             'password' => ['required', 'max:255']
         ]);
 
-        return User::create([
+        $user = User::create([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),
         ]);
+
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
+        if(Auth::attempt([
+            'email' => $validatedData['email'],
+            'password' => $validatedData['password']
+        ])){
+            return redirect()->route('home');
+        }
+
+        return redirect()->back()->withInput()->withErrors(['Erro no cadastro']);
     }
 
     public function logout(){
