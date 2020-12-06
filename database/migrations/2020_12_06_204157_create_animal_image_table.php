@@ -14,12 +14,10 @@ class CreateAnimalImageTable extends Migration
     public function up()
     {
         Schema::create('animal_image', function (Blueprint $table) {
-            $table->int('link_id');
+            $table->integer('link_id');
             $table->primary('link_id'); 
             $table->uuid('animal_id');
-            $table->foreign('animal_id')->references('animal_id')->on('animal');
             $table->uuid('image_id');
-            $table->foreign('image_id')->references('image_id')->on('image');
             $table->timestamps();
         });
     }

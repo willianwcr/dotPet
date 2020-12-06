@@ -17,7 +17,6 @@ class CreatePasswordRecoveryTable extends Migration
             $table->string('token');
             $table->primary('token');
             $table->uuid('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users');
             $table->string('email');
             $table->boolean('valid');
             $table->timestamps();
