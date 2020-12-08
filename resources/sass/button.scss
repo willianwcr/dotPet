@@ -1,0 +1,46 @@
+/* BUTTON */
+
+.btn{
+    font-size: 18px;
+    font-weight: 700;
+    color: $black;
+    background-color: $white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &.btn-block{
+        width: 100%;
+        display: block;
+    }
+
+    &.btn-lg{
+        font-size: 18px;
+        padding: 24px 30px;
+    }
+
+    &.btn-sm{
+        font-size: 15px;
+        padding: 15px 30px;
+    }
+
+    &.btn-primary{
+        background-color: $primary;
+        border: solid 3px $primary;
+        color: $white;
+    }
+
+    &.btn-secondary{
+        background-color: $white;
+        color: $primary;
+        border: solid 3px $primary;
+    }
+
+    &.btn-options{
+        font-size: 15px;
+        padding: 10px;
+        background-color: #E5E5E5;
+        line-height: 10px;
+        border-radius: 5px;
+    }
+}

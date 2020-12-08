@@ -1,0 +1,20 @@
+.badge{
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 15px;
+    color: #2F76FF;
+    background-color: rgba(#2F76FF, 0.2);
+    line-height: 15px;
+    border-radius: 5px;
+    display: block;
+
+    &.danger{
+        color: #E74C3C;
+        background-color: rgba(#E74C3C, 0.2);
+    }
+
+    &.success{
+        color: #2ECC71;
+        background-color: rgba(#2ECC71, 0.2);
+    }
+}

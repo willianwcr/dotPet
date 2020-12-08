@@ -3,6 +3,11 @@
 @import './grid.scss';
 @import './nav.scss';
 @import './dropdown.scss';
+@import './badge.scss';
+@import './card.scss';
+@import './list.scss';
+@import './alert.scss';
+@import './button.scss';
 
 /* CONTAINER */
 .container{
@@ -18,7 +23,7 @@
     padding: 50px 5%;
 
     .logo{
-        width: 300px;
+        width: 200px;
         position: relative;
         display: inline-block;
 
@@ -93,7 +98,6 @@
 /* CONTENT */
 .content{
     position: relative;
-    height: 100vh;
     padding: 0 10%;
 
     .logo{
@@ -195,107 +199,12 @@
     }
 }
 
-/* BUTTON */
-
-.btn{
-    font-size: 18px;
-    font-weight: 700;
-    color: $black;
-    background-color: $white;
-    padding: 15px 30px;
-    border-radius: 10px;
-    cursor: pointer;
-
-    &.btn-block{
-        width: 100%;
-        display: block;
-    }
-
-    &.btn-lg{
-        font-size: 18px;
-        padding: 24px 30px;
-    }
-
-    &.btn-sm{
-        font-size: 15px;
-        padding: 15px 30px;
-    }
-
-    &.btn-primary{
-        background-color: $primary;
-        border: solid 3px $primary;
-        color: $white;
-    }
-
-    &.btn-secondary{
-        background-color: $white;
-        color: $primary;
-        border: solid 3px $primary;
-    }
-
-    &.btn-options{
-        font-size: 15px;
-        padding: 10px;
-        background-color: #E5E5E5;
-        line-height: 10px;
-        border-radius: 5px;
-    }
-}
-
-/* Alert */
-
-.alert{
-    font-size: 18px;
-    font-weight: 500;
-    color: $black;
-    background-color: $white;
-    padding: 24px 30px;
-    border-radius: 10px;
-    cursor: pointer;
-
-    &.alert-primary{
-        background-color: $primary;
-        color: $white;
-    }
-
-    &.alert-secondary{
-        background-color: $secondary;
-        color: $white;
-    }
-
-    &.alert-success{
-        background-color: $success;
-        color: $white;
-    }
-
-    &.alert-danger{
-        background-color: $danger;
-        color: $white;
-    }
-
-    &.alert-warning{
-        background-color: $warning;
-        color: $black;
-    }
-
-    &.alert-info{
-        background-color: $info;
-        color: $white;
-    }
-
-    &.alert-light{
-        background-color: $white;
-        color: $black;
-    }
-
-    &.alert-dark{
-        background-color: $black;
-        color: $white;
-    }
-
-    .alert-icon{
-        display: unset;
-        margin-right: 20px;
+.dashboard{
+    .title{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+        margin-bottom: 25px;
     }
 }
 
