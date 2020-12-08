@@ -56,7 +56,7 @@
         <div class="col-4">
             <h2 class="title">Meus animais</h2>
             <div class="card">
-                <button class="btn btn-block btn-large btn-primary action">Cadastrar animal</button>
+                <button class="btn btn-block btn-primary action">Cadastrar animal</button>
                 <ul class="list">
                     <li class="list-item">
                         <a href="#">

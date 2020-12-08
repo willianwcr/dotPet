@@ -111,7 +111,7 @@
 .nav .nav-item {
   display: inline-block;
   margin-right: 30px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .nav .nav-item a {
@@ -153,7 +153,7 @@
 }
 
 .logged-user .name {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   color: #282828;
 }
@@ -164,7 +164,7 @@
 }
 
 .logged-user .type {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   color: #808080;
 }
@@ -205,9 +205,9 @@
 
 .dropdown .menu-dropdown .menu-dropdown-item {
   color: #808080;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .badge {
@@ -218,7 +218,7 @@
   background-color: rgba(47, 118, 255, 0.2);
   line-height: 15px;
   border-radius: 5px;
-  display: block;
+  display: inline-block;
 }
 
 .badge.danger {
@@ -232,7 +232,7 @@
 }
 
 .card {
-  padding: 40px;
+  padding: 25px;
   border: 2px solid #E6E6E6;
   box-sizing: border-box;
   border-radius: 20px;
@@ -254,8 +254,8 @@
 .list .list-item .item-image {
   border: 3px solid #EF476F;
   border-radius: 12px;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 .list .list-item .item-detail {
@@ -264,17 +264,15 @@
 
 .list .list-item .item-title {
   font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 18px;
   color: #282828;
 }
 
 .list .list-item .item-info {
   font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 12px;
   color: #808080;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   display: inline-block;
 }
 
@@ -363,7 +361,7 @@
 /* BUTTON */
 
 .btn {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #282828;
   background-color: #ffffff;
@@ -505,7 +503,7 @@
 .content {
   position: relative;
   padding: 0 10%;
-  top: 175px;
+  top: 150px;
 }
 
 .content .logo {
@@ -633,15 +631,17 @@
   font-weight: 700;
 }
 
-.dashboard .title {
+.dashboard .title,
+.animal .title {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 29px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   color: #282828;
 }
 
-.dashboard .card .action {
+.dashboard .card .action,
+.animal .card .action {
   margin-bottom: 25px;
 }
 

@@ -23,6 +23,7 @@ use App\Http\Controllers\InstitutionController;
 Route::get('/', [HomeController::class, 'showHome'])->name('home');
 Route::get('/about', [AboutController::class, 'show'])->name('about');
 Route::get('/animal', [AnimalController::class, 'show'])->name('animal');
+Route::get('/animal/{id}', [AnimalController::class, 'showId'])->name('animalId');
 Route::get('/myanimals', [MyAnimalsController::class, 'show'])->name('myanimals');
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::get('/institution', [InstitutionController::class, 'show'])->name('institution');

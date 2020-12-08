@@ -103,7 +103,7 @@
 .content{
     position: relative;
     padding: 0 10%;
-    top: 175px;
+    top: 150px;
 
     .logo{
         margin: 75px 0;
@@ -223,12 +223,12 @@
     }
 }
 
-.dashboard{
+.dashboard, .animal{
     .title{
         font-weight: 700;
-        font-size: 24px;
+        font-size: 18px;
         line-height: 29px;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         color: $black;
     }
 
