@@ -1,98 +1,12 @@
-/* COLORS */
-$primary: #EF476F;
-$secondary: #073B4C;
-$black: #282828;
-
-$danger: #E2574C;
-$info: #2F76FF;
-$success: #2ECC71;
-$warning: #FFD166;
-
-$gray: #4D4D4D;
-$gray2: #808080;
-$gray3: #BFBFBF;
-$gray4: #E6E6E6;
-$gray5: #F2F2F2;
-$white: #ffffff;
-
-/* RESET CSS */
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-
-    font-family: 'Montserrat', sans-serif;
-}
+@import './reset.scss';
+@import './colors.scss';
+@import './grid.scss';
+@import './nav.scss';
+@import './dropdown.scss';
 
 /* CONTAINER */
 .container{
     display: flex;
-}
-
-/* GRID */
-.row{
-    display: flex;
-    flex-wrap: wrap;
-}
-.col, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12{
-    width: 100%;
-    position: relative;
-    padding: 0 15px;
-}
-
-.col{
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
-}
-.col-1{
-    flex: 0 0 8.333%;
-    max-width: 8.333%;
-}
-.col-2{
-    flex: 0 0 16.666%;
-    max-width: 16.666%;
-}
-.col-3{
-    flex: 0 0 25%;
-    max-width: 25%;
-}
-.col-4{
-    flex: 0 0 33.333%;
-    max-width: 33.333%;
-}
-.col-5{
-    flex: 0 0 41.666%;
-    max-width: 41.666%;
-}
-.col-6{
-    flex: 0 0 50%;
-    max-width: 50%;
-}
-.col-7{
-    flex: 0 0 58.333%;
-    max-width: 58.333%;
-}
-.col-8{
-    flex: 0 0 66.666%;
-    max-width: 66.666%;
-}
-.col-9{
-    flex: 0 0 75%;
-    max-width: 75%;
-}
-.col-10{
-    flex: 0 0 83.333%;
-    max-width: 83.333%;
-}
-.col-11{
-    flex: 0 0 91.666%;
-    max-width: 91.666%;
-}
-.col-12{
-    flex: 0 0 100%;
-    max-width: 100%;
 }
 
 /* TOP BAR */
@@ -121,6 +35,7 @@ $white: #ffffff;
     .actions{
         display: inline-block;
         white-space: nowrap;
+        margin-left: 25px;
         
         button{
             margin-left: 10px;
@@ -131,48 +46,6 @@ $white: #ffffff;
         }
     }
 }
-
-/* TOP MENU */
-.menu{
-    display: inline-block;
-    list-style: none;
-
-    .menu-item{
-        display: inline-block;
-        margin-right: 30px;
-        font-size: 18px;
-
-        a{
-            color: $gray3;
-            text-decoration: none;
-            font-weight: 400;
-        }
-
-        &.active{
-            position: relative;
-
-            a{
-                color: $black;
-                font-weight: 700;
-            }
-
-            ::after{
-                content: " ";
-                position: absolute;
-                width: 100%;
-                background-color: $primary;
-                height: 4px;
-                left: 0;
-                bottom: -10px;
-            }
-        }
-
-        &:last-child{
-            margin-right: 0;
-        }
-    }
-}
-
 
 /* SIDE BAR */
 .sidebar{
@@ -358,6 +231,12 @@ $white: #ffffff;
         background-color: $white;
         color: $primary;
         border: solid 3px $primary;
+    }
+
+    &.btn-options{
+        padding: 15px;
+        background-color: #E5E5E5;
+        line-height: 15px;
     }
 }
 
