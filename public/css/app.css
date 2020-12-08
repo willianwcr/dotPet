@@ -236,7 +236,7 @@
   border: 2px solid #E6E6E6;
   box-sizing: border-box;
   border-radius: 20px;
-  height: 70vh;
+  height: 65vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -415,40 +415,44 @@
 
 /* TOP BAR */
 
-.top-bar {
+.header {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 50px 5%;
+  padding: 0 5%;
+  position: fixed;
+  background-color: #ffffff;
+  z-index: 999;
+  height: 150px;
 }
 
-.top-bar .logo {
+.header .logo {
   width: 200px;
   position: relative;
   display: inline-block;
 }
 
-.top-bar .logo img {
+.header .logo img {
   width: 100%;
 }
 
-.top-bar .desktop-menu {
+.header .desktop-menu {
   display: inline-block;
   margin: 0 auto;
 }
 
-.top-bar .actions {
+.header .actions {
   display: inline-block;
   white-space: nowrap;
   margin-left: 15px;
 }
 
-.top-bar .actions button {
+.header .actions button {
   margin-left: 10px;
 }
 
-.top-bar .actions :first-child {
+.header .actions :first-child {
   margin-left: 0px;
 }
 
@@ -488,7 +492,7 @@
   content: " ";
 }
 
-.sidebar .footer {
+.sidebar .footer-login {
   float: left;
   width: auto;
   color: #ffffff;
@@ -501,6 +505,7 @@
 .content {
   position: relative;
   padding: 0 10%;
+  top: 175px;
 }
 
 .content .logo {
@@ -512,9 +517,28 @@
   max-width: 80%;
 }
 
+.content.login {
+  top: 0;
+}
+
 /* FOOTER */
 
 .footer {
+  padding: 0 5%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: normal;
+  font-size: 14px;
+  color: #BFBFBF;
+  height: 100px;
+  position: fixed;
+  background-color: #ffffff;
+  bottom: 0;
+}
+
+.footer-login {
   position: absolute;
   width: 100%;
   left: 0;
@@ -525,7 +549,7 @@
   padding: 0 10%;
 }
 
-.footer a {
+.footer-login a {
   font-weight: 700;
   color: #EF476F;
   text-decoration: none;
@@ -614,6 +638,11 @@
   font-size: 24px;
   line-height: 29px;
   margin-bottom: 25px;
+  color: #282828;
+}
+
+.dashboard .card .action {
+  margin-bottom: 25px;
 }
 
 /* BREAKPOINTS */
@@ -629,7 +658,7 @@
     display: none;
   }
 
-  .footer {
+  .footer-login {
     position: relative;
     padding: 0;
     margin-bottom: 50px;

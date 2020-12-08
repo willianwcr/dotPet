@@ -1,8 +1,9 @@
 @extends('layouts.index')
 
 @section('body')
-    <x-top-menu/>
+    <x-header/>
     <div class="content">
         @yield('content')
     </div>
+    <x-footer/>
 @endsection

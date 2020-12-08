@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class TopMenu extends Component
+class Footer extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,9 @@ class TopMenu extends Component
      */
     public function render()
     {
-        return view('components.top-menu');
+        return view('components.footer', [
+            'DEV_APP_BUILD' => '1.0.0',
+            'DEV_APP_VERSION' => '1.0.0'
+        ]);
     }
 }

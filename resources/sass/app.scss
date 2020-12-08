@@ -15,12 +15,16 @@
 }
 
 /* TOP BAR */
-.top-bar{
+.header{
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px 5%;
+    padding: 0 5%;
+    position: fixed;
+    background-color: $white;
+    z-index: 999;
+    height: 150px;
 
     .logo{
         width: 200px;
@@ -86,7 +90,7 @@
         content: " ";
     }
 
-    .footer{
+    .footer-login{
         float: left;
         width: auto;
         color: $white;
@@ -99,6 +103,7 @@
 .content{
     position: relative;
     padding: 0 10%;
+    top: 175px;
 
     .logo{
         margin: 75px 0;
@@ -107,10 +112,29 @@
             max-width: 80%;
         }
     }
+
+    &.login{
+        top: 0;
+    }
 }
 
 /* FOOTER */
 .footer{
+    padding: 0 5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: normal;
+    font-size: 14px;
+    color: $gray3;
+    height: 100px;
+    position: fixed;
+    background-color: $white;
+    bottom: 0;
+}
+
+.footer-login{
     position: absolute;
     width: 100%;
     left: 0;
@@ -205,6 +229,11 @@
         font-size: 24px;
         line-height: 29px;
         margin-bottom: 25px;
+        color: $black;
+    }
+
+    .card .action{
+        margin-bottom: 25px;
     }
 }
 
@@ -220,7 +249,7 @@
         display: none;
     }
 
-    .footer{
+    .footer-login{
         position: relative;
         padding: 0;
         margin-bottom: 50px;

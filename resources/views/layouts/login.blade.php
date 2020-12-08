@@ -6,16 +6,16 @@
         <div class="logo">
             <a href="{{ route('home') }}"><img src="{{ asset('/img/logo-white.png') }}" alt="Logo dotpet White"></a>
         </div>
-        <div class="footer">
+        <div class="footer-login">
             <span>Feito com 💗 por Equipe dotpet.</span>
         </div>
     </div>
-    <div class="content col-5">
+    <div class="content login col-5">
         <div class="logo">
             <img src="{{ asset('/img/logo-color.png') }}" alt="Logo dotpet">
         </div>
         @yield('form')
-        <div class="footer">
+        <div class="footer-login">
             @yield('footer')
         </div>
     </div>

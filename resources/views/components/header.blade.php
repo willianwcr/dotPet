@@ -1,4 +1,4 @@
-<div class="top-bar">
+<div class="header">
     <div class="logo">
         <a href="{{ route('home') }}"><img src="{{ asset('/img/logo-color.png') }}" alt="Logo dotpet"></a>
     </div>
