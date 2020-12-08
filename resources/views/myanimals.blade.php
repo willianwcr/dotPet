@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Animal')
+@section('title', 'Contato')
 
 @section('content')
-    Animal
+    Meus animais
 @endsection

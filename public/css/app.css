@@ -179,6 +179,7 @@
 .dropdown {
   position: relative;
   display: none;
+  z-index: 9999;
 }
 
 .dropdown .menu-dropdown {
@@ -242,7 +243,7 @@
 .top-bar .actions {
   display: inline-block;
   white-space: nowrap;
-  margin-left: 25px;
+  margin-left: 15px;
 }
 
 .top-bar .actions button {
@@ -451,9 +452,11 @@
 }
 
 .btn.btn-options {
-  padding: 15px;
+  font-size: 15px;
+  padding: 10px;
   background-color: #E5E5E5;
-  line-height: 15px;
+  line-height: 10px;
+  border-radius: 5px;
 }
 
 /* Alert */

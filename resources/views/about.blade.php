@@ -3,6 +3,5 @@
 @section('title', 'Sobre')
 
 @section('content')
-    <x-top-menu/>
     Sobre
 @endsection

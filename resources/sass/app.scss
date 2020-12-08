@@ -35,7 +35,7 @@
     .actions{
         display: inline-block;
         white-space: nowrap;
-        margin-left: 25px;
+        margin-left: 15px;
         
         button{
             margin-left: 10px;
@@ -234,9 +234,11 @@
     }
 
     &.btn-options{
-        padding: 15px;
+        font-size: 15px;
+        padding: 10px;
         background-color: #E5E5E5;
-        line-height: 15px;
+        line-height: 10px;
+        border-radius: 5px;
     }
 }
 

@@ -7,9 +7,16 @@
             <li class="nav-item {{ (strpos(Route::currentRouteName(), 'home') === 0) ? 'active' : '' }}">
                 <a href="{{ route('home') }}">Início</a>
             </li>
+            @guest
             <li class="nav-item {{ (strpos(Route::currentRouteName(), 'about') === 0) ? 'active' : '' }}">
                 <a href="{{ route('about') }}">Sobre</a>
             </li>
+            @endguest
+            @auth
+            <li class="nav-item {{ (strpos(Route::currentRouteName(), 'myanimals') === 0) ? 'active' : '' }}">
+                <a href="{{ route('myanimals') }}">Meus animais</a>
+            </li>
+            @endauth
             <li class="nav-item {{ (strpos(Route::currentRouteName(), 'animal') === 0) ? 'active' : '' }}">
                 <a href="{{ route('animal') }}">Animais para adoção</a>
             </li>
@@ -42,7 +49,7 @@
                 </span>
             </div>
             <div class="image"> 
-                <img class="profile-picture" src="https://thispersondoesnotexist.com/image">
+                <img class="profile-picture" src="{{ asset('./img/no-photo.png') }}">
             </div>
         </div>
         <div class="actions">
@@ -59,7 +66,7 @@
                             🔧 Suporte
                         </li>
                     </a>
-                    <a href="#">
+                    <a href="{{ route('logout') }}">
                         <li class="menu-dropdown-item">
                             🚪 Finalizar sessão
                         </li>

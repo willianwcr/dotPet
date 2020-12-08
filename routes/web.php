@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\MyAnimalsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\InstitutionController;
 
@@ -22,6 +23,7 @@ use App\Http\Controllers\InstitutionController;
 Route::get('/', [HomeController::class, 'showHome'])->name('home');
 Route::get('/about', [AboutController::class, 'show'])->name('about');
 Route::get('/animal', [AnimalController::class, 'show'])->name('animal');
+Route::get('/myanimals', [MyAnimalsController::class, 'show'])->name('myanimals');
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::get('/institution', [InstitutionController::class, 'show'])->name('institution');
 
