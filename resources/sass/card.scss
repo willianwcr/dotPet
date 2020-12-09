@@ -3,7 +3,83 @@
     border: 2px solid #E6E6E6;
     box-sizing: border-box;
     border-radius: 20px;
-    height: 65vh;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
+    width: 100%;
+    
+    &.full-height{
+        height: 100%;
+        overflow-y: scroll;
+    }
+
+    &.align-center{
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .cover{
+        height: 200px;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 15px;
+    }
+
+    .profile-picture{
+        display: inline-block;
+        margin-bottom: 15px;
+        
+        img{
+            border-radius: 15px;
+            width: 150px;
+            height: 150px;
+            margin-top: -75%;
+        }
+    }
+
+    .detail{
+        margin-bottom: 15px;
+
+        .title{
+            font-weight: 700;
+            color: $black;
+            font-size: 18px;
+            margin-bottom: 5px;
+
+            .badge{
+                margin-left: 10px;
+            }
+        }
+
+        .info{
+            font-weight: 500;
+            font-size: 14px;
+            color: $gray2;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+    }
+
+    .short-bio{
+        font-size: 18px;
+        font-weight: 500;
+        color: $black;
+        margin-bottom: 30px;
+    }
+
+    .action{
+        margin-bottom: 15px;
+        
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+
+    .biografia{
+        text-indent: 25px;
+        line-height: 150%;
+        text-align: justify;
+        color: $black;
+    }
 }

@@ -6,7 +6,7 @@
     <div class="row dashboard">
         <div class="col-4">
             <h2 class="title">Minhas adoções</h2>
-            <div class="card">
+            <div class="card full-height">
                 <ul class="list">
                     <span class="date">24 de Outubro</span>
                     <li class="list-item">
@@ -55,7 +55,7 @@
         </div>
         <div class="col-4">
             <h2 class="title">Meus animais</h2>
-            <div class="card">
+            <div class="card full-height">
                 <button class="btn btn-block btn-primary action">Cadastrar animal</button>
                 <ul class="list">
                     <li class="list-item">
@@ -82,7 +82,7 @@
         </div>
         <div class="col-4">
             <h2 class="title">Instituições</h2>
-            <div class="card">
+            <div class="card full-height">
                 <button class="btn btn-block btn-large btn-primary action">Procurar instituição</button>
                 <ul class="list">
                     <li class="list-item">
