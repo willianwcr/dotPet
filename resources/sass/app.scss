@@ -177,6 +177,17 @@
     border-radius: 10px;
     display: flex;
 
+    &.input-secondary{
+        border: 2px solid #E6E6E6;
+        box-sizing: border-box;
+        border-radius: 15px;
+        background-color: transparent;
+
+        .form-input, .form-icon{
+            background-color: transparent;
+        }
+    }
+
     .form-icon{
         padding: 24px 30px;
         border-radius: 15px 0 0 15px;
@@ -188,6 +199,10 @@
         padding: 24px 30px 24px 0;
         border-radius: 0 15px 15px 0;
         width: 100%;
+    }
+
+    .btn{
+        margin: 10px;
     }
 }
 
@@ -240,6 +255,41 @@
 
 .dashboard .card .action{
     margin-bottom: 25px;
+}
+
+.home{
+    height: calc(100vh - 250px);
+    display: flex;
+    align-items: center;
+
+    .herobanner{
+        padding-right: 100px;
+
+        h1{
+            color: $black;
+            font-size: 48px;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .form-input{
+            max-width: 600px;
+        }
+    }
+
+    .image{
+        background-color: $primary;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+        border-radius: 100px 0 0 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
 }
 
 .owner{
