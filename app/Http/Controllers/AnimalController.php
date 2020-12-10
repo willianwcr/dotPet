@@ -10,9 +10,6 @@ use Carbon\Carbon;
 
 class AnimalController extends Controller
 {
-    public function show(){
-        return view('animal');
-    }
 
     public function showId($animal_id){
         if($animal = Animal::find($animal_id)){

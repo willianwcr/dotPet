@@ -329,7 +329,7 @@
 .list .list-item {
   display: flex;
   align-items: center;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
 }
 
 .list .list-item .item-image {
@@ -337,6 +337,11 @@
   border-radius: 12px;
   width: 75px;
   height: 75px;
+}
+
+.list .list-item .item-image.img-lg {
+  width: 125px;
+  height: 125px;
 }
 
 .list .list-item .item-detail {
@@ -351,6 +356,11 @@
   font-weight: 700;
   font-size: 18px;
   color: #282828;
+  margin-bottom: 5px;
+}
+
+.list .list-item .item-title.title-lg {
+  font-size: 24px;
 }
 
 .list .list-item .item-info {
@@ -359,6 +369,15 @@
   color: #808080;
   margin-bottom: 5px;
   display: inline-block;
+}
+
+.list .list-item .item-short-bio {
+  font-weight: 500;
+  font-size: 15px;
+  color: #282828;
+  margin-bottom: 5px;
+  display: inline-block;
+  max-width: 600px;
 }
 
 .list .list-item .item-analytics {
@@ -381,7 +400,7 @@
   margin-left: auto;
 }
 
-.list .date {
+.list .label {
   color: #EF476F;
   font-weight: 500;
   font-size: 14px;
@@ -910,7 +929,8 @@
 }
 
 .dashboard .title,
-.animal .title {
+.animal .title,
+.myanimals .title {
   font-weight: 700;
   font-size: 18px;
   line-height: 29px;
@@ -959,6 +979,74 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.search .search-header {
+  text-align: center;
+}
+
+.search .search-header .search-input {
+  max-width: 600px;
+  width: 80%;
+  display: inline-block;
+  margin-top: -50%;
+  z-index: 5;
+  position: relative;
+}
+
+.search .search-header .search-input .form-input {
+  background-color: #ffffff;
+}
+
+.search .search-header .background {
+  width: 100%;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 20px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search .search-header .background .title {
+  color: #ffffff;
+  z-index: 5;
+  font-size: 48px;
+  position: relative;
+}
+
+.search .search-header .background::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: " ";
+  top: 0;
+  left: 0;
+  background-color: #EF476F;
+  opacity: 0.85;
+  border-radius: 20px;
+  z-index: 3;
+}
+
+.search-bar {
+  margin-bottom: 30px;
+}
+
+.search-bar .form-input {
+  padding: 0;
+}
+
+.search-bar .label {
+  color: #EF476F;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
 .owner {
