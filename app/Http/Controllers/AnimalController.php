@@ -151,4 +151,43 @@ class AnimalController extends Controller
             return redirect()->route('home')->withErrors(['Esse animal não existe']);
         }
     }
+
+    public function approveAdopt($adopt_id){
+        if($adoption = Adoption::find($adopt_id)){
+            $animal = Animal::find($adoption->animal_id);
+            if($animal->isOwner()){
+                $adoption->status_id = 1;
+                $adoption->save();
+
+                $animal->adopted_by = $adoption->user_id;
+                $animal->save();
+
+                Adoption::where('animal_id', $animal->animal_id)->where('user_id', '!=', $adoption->user_id)->update([
+                    'status_id' => 2
+                ]);
+
+                return redirect()->route('animalId', $animal->animal_id);
+            }else{
+                return redirect()->route('home')->withErrors(['Você não tem permissão para aprovar adoções deste animal!']);
+            }
+        }else{
+            return redirect()->back()->withErrors(['Essa adoção não existe']);
+        }
+    }
+
+    public function disapproveAdopt($adopt_id){
+        if($adoption = Adoption::find($adopt_id)){
+            $animal = Animal::find($adoption->animal_id);
+            if($animal->isOwner()){
+                $adoption->status_id = 2;
+                $adoption->save();
+
+                return redirect()->route('animalId', $animal->animal_id);
+            }else{
+                return redirect()->route('home')->withErrors(['Você não tem permissão para aprovar adoções deste animal!']);
+            }
+        }else{
+            return redirect()->back()->withErrors(['Essa adoção não existe']);
+        }
+    }
 }

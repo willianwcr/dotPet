@@ -34,7 +34,9 @@ Route::get('/animal/delete/{id}', [AnimalController::class, 'delete'])->name('an
 Route::post('/animal/update/bio/{id}', [AnimalController::class, 'updateBio'])->name('animal.update.bio');
 Route::post('/animal/update/{id}', [AnimalController::class, 'update'])->name('animal.update');
 Route::get('/animal/adopt/{id}', [AnimalController::class, 'adopt'])->name('animal.adopt');
-Route::get('/animal/adopt/cancel/{id}', [AnimalController::class, 'cancelAdopt'])->name('animal.cancelAdopt');
+Route::get('/animal/adopt/cancel/{id}', [AnimalController::class, 'cancelAdopt'])->name('animal.adopt.cancel');
+Route::get('/animal/adopt/approve/{id}', [AnimalController::class, 'approveAdopt'])->name('animal.adopt.approve');
+Route::get('/animal/adopt/disapprove/{id}', [AnimalController::class, 'disapproveAdopt'])->name('animal.adopt.disapprove');
 Route::get('/animal/{id}', [AnimalController::class, 'showId'])->name('animalId');
 
 Route::get('/myanimals', [MyAnimalsController::class, 'show'])->name('myanimals');

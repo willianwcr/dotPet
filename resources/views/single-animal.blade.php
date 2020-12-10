@@ -129,8 +129,8 @@
                                             </span>
                                         </div>
                                         <div class="item-actions">
-                                            <button class="btn btn-sm btn-success btn-outline"><i class="fas fa-check"></i></button>
-                                            <button class="btn btn-sm btn-danger btn-outline"><i class="fas fa-times"></i></button>
+                                            <button class="btn btn-sm btn-success btn-outline" onclick="window.location.href = '{{ route('animal.adopt.approve', $adoption->adoption_id) }}'"><i class="fas fa-check"></i></button>
+                                            <button class="btn btn-sm btn-danger btn-outline" onclick="window.location.href = '{{ route('animal.adopt.disapprove', $adoption->adoption_id) }}'"><i class="fas fa-times"></i></button>
                                         </div>
                                     </li>
                                 @endforeach
@@ -225,7 +225,7 @@
                 @else
                     <button class="btn btn-block btn-large btn-secondary action">Compartilhar</button>
                     @if($myadoption)
-                        <button class="btn btn-block btn-large btn-secondary gray action" onclick="window.location.href = '{{ route('animal.cancelAdopt', $animal->animal_id) }}'">Cancelar adoção</button>
+                        <button class="btn btn-block btn-large btn-secondary gray action" onclick="window.location.href = '{{ route('animal.adopt.cancel', $animal->animal_id) }}'">Cancelar adoção</button>
                     @else
                         <button class="btn btn-block btn-large btn-primary action" onclick="window.location.href = '{{ route('animal.adopt', $animal->animal_id) }}'">Adotar</button>
                     @endif
