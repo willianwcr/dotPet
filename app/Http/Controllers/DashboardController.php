@@ -12,9 +12,11 @@ class DashboardController extends Controller
     public function show(){
         if(Auth::check() === true){
             $user = User::find(Auth::id());
+            $institutions = User::where('type', 1)->get();
             return view('dashboard')->with([
                 'myanimals' => $user->animals()->get(),
-                'myadoptions' => $user->adoptions()->get()
+                'myadoptions' => $user->adoptions()->get(),
+                'institutions' => $institutions
             ]);
         }
         return redirect()->route('home');

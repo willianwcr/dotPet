@@ -48,4 +48,6 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.show
 Route::post('/login', [AuthController::class, 'doLogin'])->name('login.do');
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.showForm');
 Route::post('/register', [AuthController::class, 'doRegister'])->name('register.do');
+Route::get('/register/institution', [AuthController::class, 'showInstitutionRegisterForm'])->name('register.institution.showForm');
+Route::post('/register/institution', [AuthController::class, 'doInstitutionRegister'])->name('register.institution.do');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

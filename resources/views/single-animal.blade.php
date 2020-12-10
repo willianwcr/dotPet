@@ -252,7 +252,7 @@
                     </div>
                 </div>
                 <div class="col-5">
-                    @if($isowner)
+                    @if($isowner && !isset($adopted_by))
                         <h2 class="title">Estatísticas</h2>
                         <div class="card">
                             <div class="analytics">
@@ -263,22 +263,67 @@
                             </div>
                         </div>
                     @else
-                        <h2 class="title">Doador</h2>
-                        <div class="card">
-                            <div class="owner">
-                                <div class="image">
-                                    <img src="{{ asset('./img/no-photo.png') }}">
-                                </div>
-                                <div class="details">
-                                    <span class="name">{{ $owner->name }}</span>
-                                    <span class="info">{{ $owner->age }} anos
-                                        @isset($owner->cidade)
-                                            | {{ $owner->cidade }}/{{ $owner->estado }}
-                                        @endisset
-                                    </span>
+                        @isset($adopted_by)
+                            <h2 class="title">Adotado por</h2>
+                            <div class="card">
+                                <div class="owner">
+                                    <div class="image">
+                                        <img src="{{ asset('./img/no-photo.png') }}">
+                                    </div>
+                                    <div class="details">
+                                        <span class="name">{{ $adopted_by->name }}</span>
+                                        <span class="info">{{ $adopted_by->age }} anos
+                                            @isset($adopted_by->cidade)
+                                                | {{ $adopted_by->cidade }}/{{ $adopted_by->estado }}
+                                            @endisset
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endisset
+                        @empty($adopted_by)
+                            @if($owner->type == 0)
+                                <h2 class="title">Doador</h2>
+                                <div class="card">
+                                    <div class="owner">
+                                        <div class="image">
+                                            <img src="{{ asset('./img/no-photo.png') }}">
+                                        </div>
+                                        <div class="details">
+                                            <span class="name">{{ $owner->name }}</span>
+                                            <span class="info">{{ $owner->age }} anos
+                                                @isset($owner->cidade)
+                                                    | {{ $owner->cidade }}/{{ $owner->estado }}
+                                                @endisset
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @elseif($owner->type == 1)
+                                <h2 class="title">Instituição</h2>
+                                <div class="card">
+                                    <div class="owner">
+                                        <div class="image">
+                                            <img src="{{ asset('./img/no-photo.png') }}">
+                                        </div>
+                                        <div class="details">
+                                            <span class="name">{{ $owner->name }}</span>
+                                            <span class="info"><i class="fas fa-paw"></i> @if($owner->animals->count() > 1)
+                                                {{ $owner->animals->count() }} animais
+                                                @elseif($owner->animals->count() == 1)
+                                                    1 animal
+                                                @else
+                                                    Nenhum animal
+                                                @endif
+                                                @isset($owner->cidade)
+                                                    | {{ $owner->cidade }}/{{ $owner->estado }}
+                                                @endisset
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endempty
                     @endif
                 </div>
             </div>

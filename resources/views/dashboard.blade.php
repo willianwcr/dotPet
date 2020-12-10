@@ -188,21 +188,31 @@
             <div class="card full-height">
                 <button class="btn btn-block btn-large btn-primary action">Procurar instituição</button>
                 <ul class="list">
-                    <li class="list-item">
-                        <a href="#">
-                            <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
-                        </a>
-                        <div class="item-detail">
-                            <h3 class="item-title">ONG Anjos de Rua Manaus</h3>
-                            <span class="item-info">Manaus, Amazonas</span>
-                            <div class="item-analytics">
-                                <div class="data">
-                                    <i class="fas fa-paw"></i>
-                                    35 animais
+                    @foreach ($institutions as $institution)    
+                        <li class="list-item">
+                            <a href="#">
+                                <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
+                            </a>
+                            <div class="item-detail">
+                                <h3 class="item-title">{{ $institution->name }}</h3>
+                                @isset($institution->cidade)
+                                    <span class="item-info">{{ $institution->cidade }}/{{ $institution->estado }}</span>
+                                @endisset
+                                <div class="item-analytics">
+                                    <div class="data">
+                                        <i class="fas fa-paw"></i> 
+                                        @if($institution->animals->count() > 1)
+                                            {{ $institution->animals->count() }} animais
+                                        @elseif($institution->animals->count() == 1)
+                                            1 animal
+                                        @else
+                                            Nenhum animal
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

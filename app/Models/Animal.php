@@ -79,10 +79,22 @@ class Animal extends Model
     }
 
     public function isOwner(){
-        if($this->owner()->first()->user_id == Auth::id()){
+        if($this->owner == Auth::id() || $this->adopted_by == Auth::id()){
             return true;
         }else{
             return false;
         }
+    }
+
+    public function adoptedBy(){
+        return $this->hasOne(User::class, 'user_id', 'adopted_by');
+    }
+
+    public function isAdopted(){
+        if(isset($this->adopted_by)){
+            return true;
+        }
+        
+        return false;
     }
 }

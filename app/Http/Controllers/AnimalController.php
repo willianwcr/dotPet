@@ -17,12 +17,14 @@ class AnimalController extends Controller
     public function showId($animal_id){
         if($animal = Animal::find($animal_id)){
             if($animal->published || $animal->isOwner()){
+                //dd($animal->owner()->first()->type);
                 return view('single-animal', [
                     'animal' => $animal,
                     'owner' => $animal->owner()->first(),
                     'isowner' => $animal->isOwner(),
                     'adoptions' => $animal->adoptions()->get(),
-                    'myadoption' => Adoption::where('animal_id', $animal_id)->where('user_id', Auth::id())->first()
+                    'myadoption' => Adoption::where('animal_id', $animal_id)->where('user_id', Auth::id())->first(),
+                    'adopted_by' => $animal->adoptedBy()->first()
                 ]);
             }else{
                 return redirect()->route('home')->withErrors(['Esse animal não existe']);
@@ -127,6 +129,9 @@ class AnimalController extends Controller
 
     public function adopt($animal_id){
         if($animal = Animal::find($animal_id)){
+            if($animal->isAdopted()){
+                return redirect()->back()->withErrors(['Essa animal ja foi adotado']);
+            }
             if($animal->isOwner()){
                 return redirect()->route('home')->withErrors(['Você não pode adotar o próprio animal!']);
             }else{
@@ -145,6 +150,9 @@ class AnimalController extends Controller
 
     public function cancelAdopt($animal_id){
         if($animal = Animal::find($animal_id)){
+            if($animal->isAdopted()){
+                return redirect()->back()->withErrors(['Essa animal ja foi adotado']);
+            }
             Adoption::where('animal_id', $animal_id)->where('user_id', Auth::id())->forceDelete();
             return redirect()->route('animalId', $animal->animal_id);
         }else{
@@ -155,6 +163,9 @@ class AnimalController extends Controller
     public function approveAdopt($adopt_id){
         if($adoption = Adoption::find($adopt_id)){
             $animal = Animal::find($adoption->animal_id);
+            if($animal->isAdopted()){
+                return redirect()->back()->withErrors(['Essa animal ja foi adotado']);
+            }
             if($animal->isOwner()){
                 $adoption->status_id = 1;
                 $adoption->save();
@@ -178,6 +189,9 @@ class AnimalController extends Controller
     public function disapproveAdopt($adopt_id){
         if($adoption = Adoption::find($adopt_id)){
             $animal = Animal::find($adoption->animal_id);
+            if($animal->isAdopted()){
+                return redirect()->back()->withErrors(['Essa animal ja foi adotado']);
+            }
             if($animal->isOwner()){
                 $adoption->status_id = 2;
                 $adoption->save();

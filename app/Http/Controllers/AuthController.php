@@ -72,6 +72,38 @@ class AuthController extends Controller
         return redirect()->back()->withInput()->withErrors(['Erro no cadastro']);
     }
 
+    public function showInstitutionRegisterForm(){
+        if(Auth::check() === true){
+            return redirect()->route('home');
+        }
+        return view('register-institution');
+    }
+
+    public function doInstitutionRegister(Request $request){
+
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'cnpj' => $request['cnpj'],
+            'type' => 1,
+            'password' => bcrypt($request['password'])
+        ]);
+
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
+        if(Auth::attempt([
+            'email' => $request['email'],
+            'password' => $request['password']
+        ])){
+            return redirect()->route('dashboard');
+        }
+
+        return redirect()->back()->withInput()->withErrors(['Erro no cadastro']);
+    }
+
     public function logout(){
         Auth::logout();
         return redirect()->route('home');

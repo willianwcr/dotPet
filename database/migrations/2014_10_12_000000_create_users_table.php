@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('cpf')->nullable();
             $table->string('cnpj')->nullable();
-            $table->date('birthday');
+            $table->date('birthday')->nullable();
             $table->string('password');
             $table->integer('type');
             $table->uuid('image_id')->nullable();
