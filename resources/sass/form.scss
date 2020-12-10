@@ -1,0 +1,151 @@
+/* FORM */
+
+.login-form{
+    .title{
+        font-size: 48px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 50px;
+        color: $black;
+    }
+
+    div{
+        margin-bottom: 25px;
+    }
+
+    .forgot-password{
+        text-align: center;
+    }
+}
+
+.form-input-icon{
+    background-color: $gray5;
+    border-radius: 10px;
+    display: flex;
+
+    &.input-secondary{
+        border: 2px solid #E6E6E6;
+        box-sizing: border-box;
+        border-radius: 15px;
+        background-color: transparent;
+
+        .form-input, .form-icon{
+            background-color: transparent;
+        }
+    }
+
+    .form-icon{
+        padding: 24px 30px;
+        border-radius: 15px 0 0 15px;
+        color: $gray3;
+        font-size: 16px;
+    }  
+
+    .form-input{
+        padding: 24px 30px 24px 0;
+        border-radius: 0 15px 15px 0;
+        width: 100%;
+    }
+
+    .btn{
+        margin: 10px;
+    }
+}
+
+.form-input{
+    background-color: $gray5;
+    font-size: 16px;
+    color: $black;
+    padding: 20px 20px;
+    border-radius: 15px;
+
+    &:focus{
+        outline: none;
+    }
+
+    &::placeholder{
+        color: $gray3;
+    }
+
+    &.block{
+        width: 100%;
+    }
+}
+
+.form-link{
+    color: $gray3;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.form-detail{
+    color: $gray3;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+
+    a{
+        text-decoration: none;
+        color: $primary;
+        font-weight: 700;
+    }
+}
+
+.input-label{
+    font-weight: 500;
+    font-size: 14px;
+    color: $primary;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.form-textarea{
+    background-color: $gray5;
+    padding: 20px 20px;
+    border-radius: 15px;
+    font-size: 16px;
+
+    &.block{
+        width: 100%;
+    }
+}
+
+.form-check{
+    background-color: $gray5;
+    color: $gray;
+    padding: 20px 20px;
+    border-radius: 15px;
+    display: inline-block;
+
+    &.form-check-icon{
+        padding: 0;
+
+        .check-icon{
+            padding: 20px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            display: block;
+            font-size: 16px;
+        }
+
+        .form-check-input{
+            display: none;
+
+            &:checked + .check-icon{
+                border: 3px solid $primary;
+                color: $primary;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
+
+.form-justify{
+    display: flex;
+    gap: 15px;
+
+    .form-check{
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -8,6 +8,8 @@
 @import './list.scss';
 @import './alert.scss';
 @import './button.scss';
+@import './modal.scss';
+@import './form.scss';
 
 /* CONTAINER */
 .container{
@@ -23,7 +25,7 @@
     padding: 0 5%;
     position: fixed;
     background-color: $white;
-    z-index: 999;
+    z-index: 900;
     height: 150px;
 
     .logo{
@@ -152,93 +154,6 @@
     }
 }
 
-/* FORM */
-
-.login-form{
-    .title{
-        font-size: 48px;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 50px;
-        color: $black;
-    }
-
-    div{
-        margin-bottom: 25px;
-    }
-
-    .forgot-password{
-        text-align: center;
-    }
-}
-
-.form-input-icon{
-    background-color: $gray5;
-    border-radius: 10px;
-    display: flex;
-
-    &.input-secondary{
-        border: 2px solid #E6E6E6;
-        box-sizing: border-box;
-        border-radius: 15px;
-        background-color: transparent;
-
-        .form-input, .form-icon{
-            background-color: transparent;
-        }
-    }
-
-    .form-icon{
-        padding: 24px 30px;
-        border-radius: 15px 0 0 15px;
-        color: $gray3;
-        font-size: 18px;
-    }  
-
-    .form-input{
-        padding: 24px 30px 24px 0;
-        border-radius: 0 15px 15px 0;
-        width: 100%;
-    }
-
-    .btn{
-        margin: 10px;
-    }
-}
-
-.form-input{
-    background-color: $gray5;
-    font-size: 18px;
-    color: $black;
-
-    &:focus{
-        outline: none;
-    }
-
-    &::placeholder{
-        color: $gray3;
-    }
-}
-
-.form-link{
-    color: $gray3;
-    font-size: 18px;
-    text-decoration: none;
-}
-
-.form-detail{
-    color: $gray3;
-    font-size: 18px;
-    text-decoration: none;
-    text-align: center;
-
-    a{
-        text-decoration: none;
-        color: $primary;
-        font-weight: 700;
-    }
-}
-
 .dashboard, .animal{
     .title{
         font-weight: 700;
@@ -284,7 +199,7 @@
         position: absolute;
         right: 0;
         bottom: 0;
-        z-index: 999;
+        z-index: 900;
         border-radius: 100px 0 0 0;
         background-repeat: no-repeat;
         background-size: cover;
