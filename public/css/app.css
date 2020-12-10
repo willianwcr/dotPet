@@ -343,7 +343,7 @@
   margin-left: 20px;
 }
 
-.list .list-item .item-detail .badge {
+.list .list-item .item-detail .item-info {
   display: block;
 }
 
@@ -375,6 +375,10 @@
 
 .list .list-item .item-analytics .data:first-child {
   margin-left: 0;
+}
+
+.list .list-item .item-actions {
+  margin-left: auto;
 }
 
 .list .date {
@@ -482,6 +486,30 @@
   border: solid 3px #EF476F;
 }
 
+.btn.btn-success {
+  background-color: #2ECC71;
+  border: solid 3px #2ECC71;
+  color: #ffffff;
+}
+
+.btn.btn-success.btn-outline {
+  background-color: transparent;
+  color: #2ECC71;
+  border: solid 3px #2ECC71;
+}
+
+.btn.btn-danger {
+  background-color: #E2574C;
+  border: solid 3px #E2574C;
+  color: #ffffff;
+}
+
+.btn.btn-danger.btn-outline {
+  background-color: transparent;
+  color: #E2574C;
+  border: solid 3px #E2574C;
+}
+
 .btn.btn-secondary.gray {
   background-color: #ffffff;
   color: #BFBFBF;
@@ -567,6 +595,10 @@
 
 .modal .modal-dialog .modal-footer.align-right {
   text-align: right;
+}
+
+.modal .modal-dialog .modal-footer.align-center {
+  text-align: center;
 }
 
 /* FORM */

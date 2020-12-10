@@ -5,10 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use App\Models\AdoptionStatus;
-use App\Models\Animal;
 
-class Adoption extends Model
+class AdoptionStatus extends Model
 {
     use HasFactory;
 
@@ -17,9 +15,9 @@ class Adoption extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'adoption_id';
+    protected $primaryKey = 'status_id';
 
-    protected $table = 'adoption';
+    protected $table = 'adoption_status';
 
     /**
      * The attributes that are mass assignable.
@@ -27,11 +25,8 @@ class Adoption extends Model
      * @var array
      */
     protected $fillable = [
-        'animal_id',
-        'user_id',
-        'status_id',
-        'created_at',
-        'updated_at'
+        'name',
+        'color'
     ];
 
     protected static function boot()
@@ -51,17 +46,5 @@ class Adoption extends Model
     public function getKeyType()
     {
         return 'string';
-    }
-
-    public function status(){
-        return $this->hasOne(AdoptionStatus::class, 'status_id', 'status_id');
-    }
-
-    public function animal(){
-        return $this->hasOne(Animal::class, 'animal_id', 'animal_id');
-    }
-
-    public function user(){
-        return $this->hasOne(User::class, 'user_id', 'user_id');
     }
 }

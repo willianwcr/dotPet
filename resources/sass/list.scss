@@ -16,7 +16,7 @@
         .item-detail{
             margin-left: 20px;
 
-            .badge{
+            .item-info{
                 display: block;
             }
         }
@@ -49,6 +49,10 @@
                     margin-left: 0;
                 }
             }
+        }
+
+        .item-actions{
+            margin-left: auto;
         }
     }
 

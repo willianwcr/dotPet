@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Animal;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
     public function show(){
         if(Auth::check() === true){
-            $myanimals = self::getMyAnimals();
-            return view('dashboard')->with(['myanimals'=>$myanimals]);
+            $user = User::find(Auth::id());
+            return view('dashboard')->with([
+                'myanimals' => $user->animals()->get(),
+                'myadoptions' => $user->adoptions()->get()
+            ]);
         }
         return redirect()->route('home');
     }

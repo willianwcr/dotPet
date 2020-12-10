@@ -106,6 +106,46 @@
                 </form>
             </div>
         </div>
+        <div class="modal" id="viewAdoptionsModal">
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <span class="modal-title">Adoções</span>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="list">
+                                @foreach ($adoptions as $adoption)
+                                    <li class="list-item">
+                                        <a href="#">
+                                            <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
+                                        </a>
+                                        <div class="item-detail">
+                                            <h3 class="item-title">{{ $adoption->user->name }}</h3>
+                                            <span class="item-info">{{ $adoption->user->age }} anos
+                                                @isset($adoption->user->cidade)
+                                                    | {{ $adoption->user->cidade }}/{{ $adoption->user->estado }}
+                                                @endisset
+                                            </span>
+                                        </div>
+                                        <div class="item-actions">
+                                            <button class="btn btn-sm btn-success btn-outline"><i class="fas fa-check"></i></button>
+                                            <button class="btn btn-sm btn-danger btn-outline"><i class="fas fa-times"></i></button>
+                                        </div>
+                                    </li>
+                                @endforeach
+                                @if($adoptions->count() == 0)
+                                    <i>Você não tem nenhum pedido de adoção</i>
+                                @endif
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer align-center">
+                    <button class="btn btn-sm btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
     @endif
     <div class="row animal">
         <div class="col-4">
@@ -132,7 +172,32 @@
                             @default
                                 🐾
                         @endswitch
-                         {{ $animal->name }} <span class="badge secondary">Disponível</span>
+                         {{ $animal->name }} 
+                        @if($isowner)
+                            @if($animal->published)
+                                <span class="badge success">Publicado</span>
+                            @else
+                                <span class="badge secondary">Em rascunho</span>
+                            @endif
+                        @else
+                            @if(!$myadoption)
+                                <span class="badge secondary">Disponível</span>
+                            @else
+                                @switch($myadoption->status_id)
+                                    @case(0)
+                                        <span class="badge secondary">Aguardando aprovação</span>
+                                        @break
+                                    @case(1)
+                                        <span class="badge success">Aprovado</span>
+                                        @break
+                                    @case(2)
+                                        <span class="badge danger">Rejeitado</span>
+                                        @break
+                                    @default
+                                        <span class="badge secondary">Disponível</span>
+                                @endswitch
+                            @endif
+                        @endif
                     </h1>
                     <span class="info">{{ $animal->breed }} | {{ $animal->age }} anos |
                         @switch($animal->gender)
@@ -159,7 +224,11 @@
                     @endif
                 @else
                     <button class="btn btn-block btn-large btn-secondary action">Compartilhar</button>
-                    <button class="btn btn-block btn-large btn-primary action">Adotar</button>
+                    @if($myadoption)
+                        <button class="btn btn-block btn-large btn-secondary gray action" onclick="window.location.href = '{{ route('animal.cancelAdopt', $animal->animal_id) }}'">Cancelar adoção</button>
+                    @else
+                        <button class="btn btn-block btn-large btn-primary action" onclick="window.location.href = '{{ route('animal.adopt', $animal->animal_id) }}'">Adotar</button>
+                    @endif
                 @endif
             </div>
         </div>
@@ -190,7 +259,7 @@
                                 <div class="details">
                                     
                                 </div>
-                                <button class="btn btn-block btn-large btn-primary action">Ver adoções</button>
+                                <button class="btn btn-block btn-large btn-primary action" data-modal-toggle="viewAdoptionsModal">Ver adoções</button>
                             </div>
                         </div>
                     @else

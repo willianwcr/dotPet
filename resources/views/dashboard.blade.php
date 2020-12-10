@@ -80,48 +80,55 @@
             <h2 class="title">Minhas adoções</h2>
             <div class="card full-height">
                 <ul class="list">
-                    <span class="date">24 de Outubro</span>
-                    <li class="list-item">
-                        <a href="#">
-                            <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
-                        </a>
-                        <div class="item-detail">
-                            <h3 class="item-title">🐶 Pretinha</h3>
-                            <span class="item-info">Vira-lata | ♀️ Fêmea</span>
-                            <span class="badge">Aguardando aprovação</span>
-                        </div>
-                    </li>
-                    <li class="list-item">
-                        <a href="#">
-                            <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
-                        </a>
-                        <div class="item-detail">
-                            <h3 class="item-title">🐶 Pretinha</h3>
-                            <span class="item-info">Vira-lata | ♀️ Fêmea</span>
-                            <span class="badge danger">Aguardando aprovação</span>
-                        </div>
-                    </li>
-                    <span class="date">24 de Outubro</span>
-                    <li class="list-item">
-                        <a href="#">
-                            <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
-                        </a>
-                        <div class="item-detail">
-                            <h3 class="item-title">🐶 Pretinha</h3>
-                            <span class="item-info">Vira-lata | ♀️ Fêmea</span>
-                            <span class="badge success">Aguardando aprovação</span>
-                        </div>
-                    </li>
-                    <li class="list-item">
-                        <a href="#">
-                            <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
-                        </a>
-                        <div class="item-detail">
-                            <h3 class="item-title">🐶 Pretinha</h3>
-                            <span class="item-info">Vira-lata | ♀️ Fêmea</span>
-                            <span class="badge">Aguardando aprovação</span>
-                        </div>
-                    </li>
+                    @foreach ($myadoptions as $myadoption)
+                        <li class="list-item">
+                            <a href="{{ route('animalId', $myadoption->animal->animal_id) }}">
+                                <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
+                            </a>
+                            <div class="item-detail">
+                                <h3 class="item-title">@switch($myadoption->animal->specie_id)
+                                    @case(0)
+                                        🐶
+                                        @break
+                                    @case(1)
+                                        🐱
+                                        @break
+                                    @default
+                                        🐾
+                                @endswitch {{ $myadoption->animal->name }}</h3>
+                                <span class="item-info">{{ $myadoption->animal->breed }} | @switch($myadoption->animal->gender)
+                                    @case(0)
+                                        <i class="fas fa-venus"></i> Fêmea
+                                        @break
+                                    @case(1)
+                                        <i class="fas fa-mars"></i> Macho
+                                        @break
+                                    @default
+                                        Sem gênero definido
+                                @endswitch</span>
+                                @if($myadoption->animal->published)
+                                    @switch($myadoption->status_id)
+                                        @case(0)
+                                            <span class="badge secondary">Aguardando aprovação</span>
+                                            @break
+                                        @case(1)
+                                            <span class="badge success">Aprovado</span>
+                                            @break
+                                        @case(2)
+                                            <span class="badge danger">Rejeitado</span>
+                                            @break
+                                        @default
+                                            
+                                    @endswitch
+                                @else
+                                    <span class="badge secondary">Cancelado</span>
+                                @endif
+                            </div>
+                        </li>
+                    @endforeach
+                    @if($myadoptions->count() == 0)
+                        <i>Você não tem nenhum pedido de adoção</i>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -167,7 +174,7 @@
                                     </div>
                                     <div class="data">
                                         <i class="fas fa-user-alt"></i>
-                                        5
+                                        {{ $myanimal->adoptions->count() }}
                                     </div>
                                 </div>
                             </div>

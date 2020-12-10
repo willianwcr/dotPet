@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\User;
+use App\Models\Adoption;
 use Carbon\Carbon;
 
 class Animal extends Model
@@ -63,6 +64,10 @@ class Animal extends Model
 
     public function owner(){
         return $this->hasOne(User::class, 'user_id', 'owner');
+    }
+
+    public function adoptions(){
+        return $this->hasMany(Adoption::class, 'animal_id', 'animal_id');
     }
 
     /**

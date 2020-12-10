@@ -83,7 +83,11 @@ class User extends Authenticatable
     }
 
     public function animals(){
-        return $this->hasMany(Animal::class, 'user_id', 'owner');
+        return $this->hasMany(Animal::class, 'owner', 'user_id');
+    }
+
+    public function adoptions(){
+        return $this->hasMany(Adoption::class, 'user_id', 'user_id');
     }
 
     /**

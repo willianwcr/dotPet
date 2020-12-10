@@ -36,6 +36,30 @@
         border: solid 3px $primary;
     }
 
+    &.btn-success{
+        background-color: $success;
+        border: solid 3px $success;
+        color: $white;
+    }
+
+    &.btn-success.btn-outline{
+        background-color: transparent;
+        color: $success;
+        border: solid 3px $success;
+    }
+
+    &.btn-danger{
+        background-color: $danger;
+        border: solid 3px $danger;
+        color: $white;
+    }
+
+    &.btn-danger.btn-outline{
+        background-color: transparent;
+        color: $danger;
+        border: solid 3px $danger;
+    }
+
     &.btn-secondary.gray{
         background-color: $white;
         color: $gray3;
