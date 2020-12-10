@@ -17,7 +17,7 @@ class CreateAnimalsTable extends Migration
             $table->uuid('animal_id');
             $table->primary('animal_id');
             $table->string('name');
-            $table->string('bio')->nullable();
+            $table->text('bio')->nullable();
             $table->string('short_bio');
             $table->integer('gender');
             $table->string('breed');

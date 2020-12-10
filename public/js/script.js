@@ -100,7 +100,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var dismissButtons = document.querySelectorAll('[data-dismiss="modal"]');
 
   for (var i = 0; i < dismissButtons.length; i++) {
-    dismissButtons[i].addEventListener('click', function () {
+    dismissButtons[i].addEventListener('click', function (evt) {
+      evt.preventDefault();
       hideModals();
     });
   }
@@ -108,10 +109,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var modalToggleButtons = document.querySelectorAll('[data-modal-toggle]');
 
   for (var i = 0; i < modalToggleButtons.length; i++) {
-    modalToggleButtons[i].addEventListener('click', function (el) {
-      console.log(el.target);
-      showModal(el.target.getAttribute('data-modal-toggle'));
-    });
+    modalToggleButtons[i].style.cursor = 'pointer';
+
+    modalToggleButtons[i].onclick = function (el) {
+      if (el.target.getAttribute('data-modal-toggle')) {
+        showModal(el.target.getAttribute('data-modal-toggle'));
+      } else {
+        showModal(el.path[1].getAttribute('data-modal-toggle'));
+      }
+    };
   }
 
   var hideModals = function hideModals() {

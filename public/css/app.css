@@ -482,6 +482,12 @@
   border: solid 3px #EF476F;
 }
 
+.btn.btn-secondary.gray {
+  background-color: #ffffff;
+  color: #BFBFBF;
+  border: solid 3px #E6E6E6;
+}
+
 .btn.btn-options {
   font-size: 15px;
   padding: 10px;

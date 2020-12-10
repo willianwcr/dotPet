@@ -36,6 +36,12 @@
         border: solid 3px $primary;
     }
 
+    &.btn-secondary.gray{
+        background-color: $white;
+        color: $gray3;
+        border: solid 3px $gray4;
+    }
+
     &.btn-options{
         font-size: 15px;
         padding: 10px;

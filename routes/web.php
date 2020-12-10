@@ -24,9 +24,17 @@ use App\Http\Controllers\InstitutionController;
 Route::get('/', [HomeController::class, 'showHome'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
 Route::get('/about', [AboutController::class, 'show'])->name('about');
+
+// Animal Routes
 Route::get('/animal', [AnimalController::class, 'show'])->name('animal');
 Route::post('/animal', [AnimalController::class, 'doRegister'])->name('animalRegister');
+Route::get('/animal/publish/{id}', [AnimalController::class, 'publish'])->name('animal.publish');
+Route::get('/animal/unpublish/{id}', [AnimalController::class, 'unpublish'])->name('animal.unpublish');
+Route::get('/animal/delete/{id}', [AnimalController::class, 'delete'])->name('animal.delete');
+Route::post('/animal/update/bio/{id}', [AnimalController::class, 'updateBio'])->name('animal.update.bio');
+Route::post('/animal/update/{id}', [AnimalController::class, 'update'])->name('animal.update');
 Route::get('/animal/{id}', [AnimalController::class, 'showId'])->name('animalId');
+
 Route::get('/myanimals', [MyAnimalsController::class, 'show'])->name('myanimals');
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::get('/institution', [InstitutionController::class, 'show'])->name('institution');

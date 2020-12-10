@@ -136,8 +136,30 @@
                                 <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
                             </a>
                             <div class="item-detail">
-                                <h3 class="item-title">🐶 {{ $myanimal->name }}</h3>
-                                <span class="item-info">{{ $myanimal->breed }} | ♀️ Fêmea</span>
+                                <h3 class="item-title">
+                                    @switch($myanimal->specie_id)
+                                        @case(0)
+                                            🐶
+                                            @break
+                                        @case(1)
+                                            🐱
+                                            @break
+                                        @default
+                                            🐾
+                                    @endswitch {{ $myanimal->name }}
+                                </h3>
+                                <span class="item-info">{{ $myanimal->breed }} | 
+                                    @switch($myanimal->gender)
+                                        @case(0)
+                                            <i class="fas fa-venus"></i> Fêmea
+                                            @break
+                                        @case(1)
+                                            <i class="fas fa-mars"></i> Macho
+                                            @break
+                                        @default
+                                            Sem gênero definido
+                                    @endswitch
+                                </span>
                                 <div class="item-analytics">
                                     <div class="data">
                                         <i class="fas fa-eye"></i>

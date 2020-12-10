@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\User;
+use Carbon\Carbon;
 
 class Animal extends Model
 {
@@ -61,5 +63,21 @@ class Animal extends Model
 
     public function owner(){
         return $this->hasOne(User::class, 'user_id', 'owner');
+    }
+
+    /**
+     * Accessor for Age.
+     */
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->attributes['birthday'])->age;
+    }
+
+    public function isOwner(){
+        if($this->owner()->first()->user_id == Auth::id()){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
