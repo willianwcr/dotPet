@@ -4,7 +4,7 @@
     </div>
     <div class="desktop-menu">
         <ul class="nav">
-            <li class="nav-item {{ (strpos(Route::currentRouteName(), 'home') === 0) ? 'active' : '' }}">
+            <li class="nav-item {{ (strpos(Route::currentRouteName(), 'home') === 0) || (strpos(Route::currentRouteName(), 'dashboard') === 0) ? 'active' : '' }}">
                 <a href="{{ route('home') }}">Início</a>
             </li>
             @guest
