@@ -275,6 +275,11 @@
   width: 150px;
   height: 150px;
   margin-top: -75%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .card .detail {
@@ -337,6 +342,8 @@
   border-radius: 12px;
   width: 75px;
   height: 75px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .list .list-item .item-image.img-lg {

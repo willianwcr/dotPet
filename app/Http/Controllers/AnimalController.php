@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Animal;
 use App\Models\Adoption;
+use App\Models\Image;
 use Carbon\Carbon;
 
 class AnimalController extends Controller
@@ -14,12 +15,11 @@ class AnimalController extends Controller
     public function showId($animal_id){
         if($animal = Animal::find($animal_id)){
             if($animal->published || $animal->isOwner()){
-                //dd($animal->owner()->first()->type);
                 return view('single-animal', [
                     'animal' => $animal,
                     'owner' => $animal->owner()->first(),
                     'isowner' => $animal->isOwner(),
-                    'adoptions' => $animal->adoptions()->get(),
+                    'adoptions' => Adoption::where('animal_id', $animal_id)->where('status_id', 0)->get(),
                     'myadoption' => Adoption::where('animal_id', $animal_id)->where('user_id', Auth::id())->first(),
                     'adopted_by' => $animal->adoptedBy()->first()
                 ]);
@@ -113,6 +113,26 @@ class AnimalController extends Controller
         if($animal = Animal::find($animal_id)){
             if($animal->isOwner()){
                 $animal->bio = $request['bio'];
+                $animal->save();
+
+                return redirect()->route('animalId', $animal->animal_id);
+            }else{
+                return redirect()->route('home')->withErrors(['Você não tem permissão para alterar esse animal!']);
+            }
+        }else{
+            return redirect()->route('home')->withErrors(['Esse animal não existe']);
+        }
+    }
+
+    public function updatePhoto(Request $request, $animal_id){
+        if($animal = Animal::find($animal_id)){
+            if($animal->isOwner()){
+
+                $image = new Image;
+                $image->path = $request->file('image')->store('profile');
+                $image->save();
+
+                $animal->image_id = $image->image_id;
                 $animal->save();
 
                 return redirect()->route('animalId', $animal->animal_id);

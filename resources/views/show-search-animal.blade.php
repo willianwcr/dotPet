@@ -66,7 +66,11 @@
                 @foreach ($searchAnimals as $animal)
                     <li class="list-item">
                         <a href="{{ route('animalId', $animal->animal_id) }}">
-                            <img class="item-image img-lg" src="{{ asset('./img/no-photo.png') }}">
+                            @if($animal->image_id)
+                                <img class="item-image img-lg" src="{{ asset('./storage/'.$animal->image->path) }}">
+                            @else
+                                <img class="item-image img-lg" src="{{ asset('./img/no-photo.png') }}">
+                            @endif
                         </a>
                         <div class="item-detail">
                             <h3 class="item-title title-lg">

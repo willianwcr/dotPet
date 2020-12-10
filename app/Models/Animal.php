@@ -90,6 +90,10 @@ class Animal extends Model
         return $this->hasOne(User::class, 'user_id', 'adopted_by');
     }
 
+    public function image(){
+        return $this->hasOne(Image::class, 'image_id', 'image_id');
+    }
+
     public function isAdopted(){
         if(isset($this->adopted_by)){
             return true;

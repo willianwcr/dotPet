@@ -35,6 +35,10 @@
             width: 150px;
             height: 150px;
             margin-top: -75%;
+            object-fit: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 

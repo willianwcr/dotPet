@@ -28,7 +28,11 @@
                 @foreach ($lastanimals as $lastanimal)
                     <li class="list-item">
                         <a href="{{ route('animalId', $lastanimal->animal_id) }}">
-                            <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
+                            @if($lastanimal->image_id)
+                                <img class="item-image" src="{{ asset('./storage/'.$lastanimal->image->path) }}">
+                            @else
+                                <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
+                            @endif
                         </a>
                         <div class="item-detail">
                             <h3 class="item-title">

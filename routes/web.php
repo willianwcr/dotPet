@@ -40,6 +40,7 @@ Route::get('/animal/publish/{id}', [AnimalController::class, 'publish'])->name('
 Route::get('/animal/unpublish/{id}', [AnimalController::class, 'unpublish'])->name('animal.unpublish');
 Route::get('/animal/delete/{id}', [AnimalController::class, 'delete'])->name('animal.delete');
 Route::post('/animal/update/bio/{id}', [AnimalController::class, 'updateBio'])->name('animal.update.bio');
+Route::post('/animal/update/photo/{id}', [AnimalController::class, 'updatePhoto'])->name('animal.update.photo');
 Route::post('/animal/update/{id}', [AnimalController::class, 'update'])->name('animal.update');
 Route::get('/animal/adopt/{id}', [AnimalController::class, 'adopt'])->name('animal.adopt');
 Route::get('/animal/adopt/cancel/{id}', [AnimalController::class, 'cancelAdopt'])->name('animal.adopt.cancel');

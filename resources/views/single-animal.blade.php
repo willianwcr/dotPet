@@ -146,19 +146,46 @@
                 </div>
             </div>
         </div>
+        <div class="modal" id="addProfilePictureModal">
+            <div class="modal-dialog">
+                <form action="{{ route('animal.update.photo', $animal->animal_id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-header">
+                        <span class="modal-title">Adicionar foto de perfil</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <input type="file" name="image" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer align-center">
+                        <button class="btn btn-sm btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     @endif
     <div class="row animal">
         <div class="col-4">
             <h2 class="title">Informações 
                 @if($isowner)
                     <span class="badge secondary" data-modal-toggle="editAnimalModal"><i class="fas fa-pen"></i></span>
+                    <span class="badge secondary" data-modal-toggle="addProfilePictureModal"><i class="far fa-image"></i> Adicionar foto</span>
                 @endif
             </h2>
             <div class="card align-center">
-                <div class="cover" style="background-image: url('{{ asset('./img/no-photo.png') }}')">
+                <div class="cover" style="background-color: #EF476F;">
                 </div>
                 <div class="profile-picture">
-                    <img src="{{ asset('./img/no-photo.png') }}">
+                    @if($animal->image_id)
+                        <img src="{{ asset('./storage/'.$animal->image->path) }}">
+                    @else
+                        <img src="{{ asset('./img/no-photo.png') }}">
+                    @endif
+                    
                 </div>
                 <div class="detail">
                     <h1 class="title">

@@ -83,7 +83,11 @@
                     @foreach ($myadoptions as $myadoption)
                         <li class="list-item">
                             <a href="{{ route('animalId', $myadoption->animal->animal_id) }}">
-                                <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
+                                @if($myadoption->image_id)
+                                    <img class="item-image" src="{{ asset('./storage/'.$myadoption->image->path) }}">
+                                @else
+                                    <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
+                                @endif
                             </a>
                             <div class="item-detail">
                                 <h3 class="item-title">@switch($myadoption->animal->specie_id)
@@ -140,7 +144,11 @@
                     @foreach ($myanimals as $myanimal)
                         <li class="list-item">
                             <a href="{{ route('animalId', $myanimal->animal_id) }}">
-                                <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
+                                @if($myanimal->image_id)
+                                    <img class="item-image" src="{{ asset('./storage/'.$myanimal->image->path) }}">
+                                @else
+                                    <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
+                                @endif
                             </a>
                             <div class="item-detail">
                                 <h3 class="item-title">
