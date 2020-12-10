@@ -17,13 +17,13 @@ class CreateAnimalsTable extends Migration
             $table->uuid('animal_id');
             $table->primary('animal_id');
             $table->string('name');
-            $table->string('bio');
+            $table->string('bio')->nullable();
             $table->string('short_bio');
             $table->integer('gender');
             $table->string('breed');
             $table->date('birthday');
             $table->integer('specie_id');
-            $table->uuid('image_id');
+            $table->uuid('image_id')->nullable();
             $table->boolean('published');
             $table->integer('views');
             $table->uuid('adopted_by')->nullable();

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+use App\Models\User;
 
 class Animal extends Model
 {
@@ -37,4 +39,27 @@ class Animal extends Model
         'created_at',
         'updated_at'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($animal) {
+            $animal->{$animal->getKeyName()} = (string) Str::uuid();
+        });
+    }
+
+    public function getIncrementing()
+    {
+        return false;
+    }
+
+    public function getKeyType()
+    {
+        return 'string';
+    }
+
+    public function owner(){
+        return $this->hasOne(User::class, 'user_id', 'owner');
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -39,6 +40,8 @@ class AuthController extends Controller
 
     public function doRegister(Request $request){
 
+        //dd($request);
+
         $validatedData = $request->validate([
             'name' => ['required', 'max:255'],
             'email' => ['required', 'unique:users', 'max:255'],
@@ -51,6 +54,7 @@ class AuthController extends Controller
             'email' => $validatedData['email'],
             'type' => 0,
             'password' => bcrypt($validatedData['password']),
+            'birthday' => Carbon::createFromFormat('Y-m-d', $validatedData['birthday'])
         ]);
 
         $credentials = [
@@ -62,7 +66,7 @@ class AuthController extends Controller
             'email' => $validatedData['email'],
             'password' => $validatedData['password']
         ])){
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         }
 
         return redirect()->back()->withInput()->withErrors(['Erro no cadastro']);

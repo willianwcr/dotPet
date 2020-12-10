@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\MyAnimalsController;
@@ -21,8 +22,10 @@ use App\Http\Controllers\InstitutionController;
 */
 
 Route::get('/', [HomeController::class, 'showHome'])->name('home');
+Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
 Route::get('/about', [AboutController::class, 'show'])->name('about');
 Route::get('/animal', [AnimalController::class, 'show'])->name('animal');
+Route::post('/animal', [AnimalController::class, 'doRegister'])->name('animalRegister');
 Route::get('/animal/{id}', [AnimalController::class, 'showId'])->name('animalId');
 Route::get('/myanimals', [MyAnimalsController::class, 'show'])->name('myanimals');
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');

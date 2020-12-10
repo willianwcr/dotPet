@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function showHome(){
         if(Auth::check() === true){
-            return view('dashboard');
+            return redirect()->route('dashboard');
         }
         return view('home');
     }

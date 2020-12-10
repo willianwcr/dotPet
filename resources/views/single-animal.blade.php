@@ -13,11 +13,11 @@
                     <img src="{{ asset('./img/no-photo.png') }}">
                 </div>
                 <div class="detail">
-                    <h1 class="title">🐶 Pretinha <span class="badge secondary">Disponível</span></h1>
-                    <span class="info">Vira-lata | 3 anos | ♀️ Fêmea</span>
+                    <h1 class="title">🐶 {{ $animal->name }} <span class="badge secondary">Disponível</span></h1>
+                    <span class="info">{{ $animal->breed }} | 3 anos | ♀️ Fêmea</span>
                 </div>
                 <div class="short-bio">
-                    A pretinha é uma cachorrinha muito dócil. Ela tem 3 anos de idade, é muito brincalhona.
+                    {{ $animal->short_bio }}
                 </div>
                 <button class="btn btn-block btn-large btn-secondary action">Compartilhar</button>
                 <button class="btn btn-block btn-large btn-primary action">Adotar</button>
@@ -39,8 +39,8 @@
                                 <img src="{{ asset('./img/no-photo.png') }}">
                             </div>
                             <div class="details">
-                                <span class="name">Willian Rodrigues</span>
-                                <span class="info">19 anos | Manaus/AM</span>
+                                <span class="name">{{ $owner->name }}</span>
+                                <span class="info">{{ $owner->age }} anos | Manaus/AM</span>
                             </div>
                         </div>
                     </div>
