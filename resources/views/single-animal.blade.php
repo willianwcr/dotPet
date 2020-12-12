@@ -181,7 +181,7 @@
                 </div>
                 <div class="profile-picture">
                     @if($animal->image_id)
-                        <img src="{{ asset('./storage/'.$animal->image->path) }}">
+                        <img src="{{ $animal->image->url() }}">
                     @else
                         <img src="{{ asset('./img/no-photo.png') }}">
                     @endif

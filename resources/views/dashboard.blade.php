@@ -84,7 +84,7 @@
                         <li class="list-item">
                             <a href="{{ route('animalId', $myadoption->animal->animal_id) }}">
                                 @if($myadoption->image_id)
-                                    <img class="item-image" src="{{ asset('./storage/'.$myadoption->image->path) }}">
+                                    <img class="item-image" src="{{ $myadoption->image->url() }}">
                                 @else
                                     <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
                                 @endif
@@ -145,7 +145,7 @@
                         <li class="list-item">
                             <a href="{{ route('animalId', $myanimal->animal_id) }}">
                                 @if($myanimal->image_id)
-                                    <img class="item-image" src="{{ asset('./storage/'.$myanimal->image->path) }}">
+                                    <img class="item-image" src="{{ $myanimal->image->url() }}">
                                 @else
                                     <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
                                 @endif

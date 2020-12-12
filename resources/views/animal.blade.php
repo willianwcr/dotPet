@@ -29,7 +29,7 @@
                     <li class="list-item">
                         <a href="{{ route('animalId', $lastanimal->animal_id) }}">
                             @if($lastanimal->image_id)
-                                <img class="item-image" src="{{ asset('./storage/'.$lastanimal->image->path) }}">
+                                <img class="item-image" src="{{ $lastanimal->image->url() }}">
                             @else
                                 <img class="item-image" src="{{ asset('./img/no-photo.png') }}">
                             @endif

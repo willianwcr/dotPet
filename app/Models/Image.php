@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class Image extends Model
 {
@@ -45,5 +46,9 @@ class Image extends Model
     public function getKeyType()
     {
         return 'string';
+    }
+
+    public function url(){
+        return Storage::url($this->path);
     }
 }
